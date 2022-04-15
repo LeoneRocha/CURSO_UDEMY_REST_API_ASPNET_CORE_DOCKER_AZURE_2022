@@ -15,59 +15,59 @@ namespace RestWithASPNETUdemy.Controllers
         private readonly ILogger<BookController> _logger;
 
         // Declaration of the service used
-        private IBookBusiness _BookBusiness;
+        private IBookBusiness _bookBusiness;
 
         // Injection of an instance of IBookService
         // when creating an instance of BookController
-        public BookController(ILogger<BookController> logger, IBookBusiness BookBusiness)
+        public BookController(ILogger<BookController> logger, IBookBusiness bookBusiness)
         {
             _logger = logger;
-            _BookBusiness = BookBusiness;
+            _bookBusiness = bookBusiness;
         }
 
-        // Maps GET requests to https://localhost:{port}/api/Book
+        // Maps GET requests to https://localhost:{port}/api/book
         // Get no parameters for FindAll -> Search All
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_BookBusiness.FindAll());
+            return Ok(_bookBusiness.FindAll());
         }
 
-        // Maps GET requests to https://localhost:{port}/api/Book/{id}
+        // Maps GET requests to https://localhost:{port}/api/book/{id}
         // receiving an ID as in the Request Path
         // Get with parameters for FindById -> Search by ID
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            var Book = _BookBusiness.FindByID(id);
-            if (Book == null) return NotFound();
-            return Ok(Book);
+            var book = _bookBusiness.FindByID(id);
+            if (book == null) return NotFound();
+            return Ok(book);
         }
 
-        // Maps POST requests to https://localhost:{port}/api/Book/
+        // Maps POST requests to https://localhost:{port}/api/book/
         // [FromBody] consumes the JSON object sent in the request body
         [HttpPost]
-        public IActionResult Post([FromBody] Book Book)
+        public IActionResult Post([FromBody] Book book)
         {
-            if (Book == null) return BadRequest();
-            return Ok(_BookBusiness.Create(Book));
+            if (book == null) return BadRequest();
+            return Ok(_bookBusiness.Create(book));
         }
 
-        // Maps PUT requests to https://localhost:{port}/api/Book/
+        // Maps PUT requests to https://localhost:{port}/api/book/
         // [FromBody] consumes the JSON object sent in the request body
         [HttpPut]
-        public IActionResult Put([FromBody] Book Book)
+        public IActionResult Put([FromBody] Book book)
         {
-            if (Book == null) return BadRequest();
-            return Ok(_BookBusiness.Update(Book));
+            if (book == null) return BadRequest();
+            return Ok(_bookBusiness.Update(book));
         }
 
-        // Maps DELETE requests to https://localhost:{port}/api/Book/{id}
+        // Maps DELETE requests to https://localhost:{port}/api/book/{id}
         // receiving an ID as in the Request Path
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            _BookBusiness.Delete(id);
+            _bookBusiness.Delete(id);
             return NoContent();
         }
     }
