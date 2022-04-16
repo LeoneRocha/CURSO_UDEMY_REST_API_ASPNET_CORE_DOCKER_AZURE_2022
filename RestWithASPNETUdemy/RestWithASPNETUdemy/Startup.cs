@@ -15,6 +15,8 @@ using RestWithASPNETUdemy.Repository.Generic;
 using Microsoft.Net.Http.Headers;
 using RestWithASPNETUdemy.Hypermedia.Filters;
 using RestWithASPNETUdemy.Hypermedia.Enricher;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace RestWithASPNETUdemy
 {
@@ -57,12 +59,28 @@ namespace RestWithASPNETUdemy
             })
             .AddXmlSerializerFormatters();
 
+            //HyperMedia
             var filterOptions = new HyperMediaFilterOptions();
             filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
             filterOptions.ContentResponseEnricherList.Add(new BookEnricher());
 
             services.AddSingleton(filterOptions);
 
+            //Documenacao
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "REST API's From 0 to Azure with ASP.NET Core 5 and Docker",
+                        Version = "v1",
+                        Description = "API RESTful developed in course 'REST API's From 0 to Azure with ASP.NET Core 5 and Docker'",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Leone Rocha",
+                            Url = new Uri("https://github.com/leonerocha")
+                        }
+                    });
+            });
             //Versioning API
             services.AddApiVersioning();
 
@@ -71,6 +89,8 @@ namespace RestWithASPNETUdemy
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+
+             
         }
 
 
@@ -85,6 +105,17 @@ namespace RestWithASPNETUdemy
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "REST API's From 0 to Azure with ASP.NET Core 5 and Docker - v1");
+            });
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+            app.UseRewriter(option);
 
             app.UseAuthorization();
 
