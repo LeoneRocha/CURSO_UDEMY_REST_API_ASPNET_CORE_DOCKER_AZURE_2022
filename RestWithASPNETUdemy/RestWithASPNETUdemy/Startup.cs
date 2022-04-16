@@ -12,7 +12,7 @@ using RestWithASPNETUdemy.Repository.Implementations;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using RestWithASPNETUdemy.Repository.Generic;
+using RestWithASPNETUdemy.Repository.Generic; 
 
 namespace RestWithASPNETUdemy
 {
@@ -44,9 +44,19 @@ namespace RestWithASPNETUdemy
             {
                 migrateDatabase(connection);
             }
+            //AcceptHeader  para receber e retornar outros tipos como xml
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", Microsoft.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", Microsoft.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json"));
+            })
+             .AddXmlSerializerFormatters();
+
             //Versioning API
             services.AddApiVersioning();
-             
+
             //Dependency Injection
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
