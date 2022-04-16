@@ -8,11 +8,13 @@ using RestWithASPNETUdemy.Model.Context;
 using RestWithASPNETUdemy.Business;
 using RestWithASPNETUdemy.Business.Implementations;
 using RestWithASPNETUdemy.Repository;
-using RestWithASPNETUdemy.Repository.Implementations;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using RestWithASPNETUdemy.Repository.Generic; 
+using RestWithASPNETUdemy.Repository.Generic;
+using Microsoft.Net.Http.Headers;
+using RestWithASPNETUdemy.Hypermedia.Filters;
+using RestWithASPNETUdemy.Hypermedia.Enricher;
 
 namespace RestWithASPNETUdemy
 {
@@ -20,7 +22,6 @@ namespace RestWithASPNETUdemy
     {
         public IConfiguration _Configuration { get; }
         public IWebHostEnvironment _Environment { get; }
-
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             _Configuration = configuration;
@@ -30,6 +31,8 @@ namespace RestWithASPNETUdemy
                 .WriteTo.Console()
                 .CreateLogger();
         }
+
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -44,15 +47,21 @@ namespace RestWithASPNETUdemy
             {
                 migrateDatabase(connection);
             }
-            //AcceptHeader  para receber e retornar outros tipos como xml
+            //AcceptHeader
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
 
-                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", Microsoft.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/xml"));
-                options.FormatterMappings.SetMediaTypeMappingForFormat("json", Microsoft.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
             })
-             .AddXmlSerializerFormatters();
+            .AddXmlSerializerFormatters();
+
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new BookEnricher());
+
+            services.AddSingleton(filterOptions);
 
             //Versioning API
             services.AddApiVersioning();
@@ -62,8 +71,8 @@ namespace RestWithASPNETUdemy
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
-
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -82,6 +91,7 @@ namespace RestWithASPNETUdemy
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
         private void migrateDatabase(string connection)
@@ -102,6 +112,5 @@ namespace RestWithASPNETUdemy
                 throw;
             }
         }
-
     }
 }
