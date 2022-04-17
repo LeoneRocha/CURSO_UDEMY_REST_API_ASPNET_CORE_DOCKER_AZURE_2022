@@ -106,6 +106,8 @@ namespace RestWithASPNETUdemy
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c => {
