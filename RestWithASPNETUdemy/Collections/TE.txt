@@ -1,0 +1,5 @@
+{{baseUrl}}/api/auth/v{{version}}/signin
+{{baseUrl}}/api/auth/v{{version}}/signin
+
+https://localhost:44300/api/auth/v1/signin
+
