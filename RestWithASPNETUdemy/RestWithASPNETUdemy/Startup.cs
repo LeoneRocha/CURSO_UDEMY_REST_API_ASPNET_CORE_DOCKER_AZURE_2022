@@ -46,7 +46,6 @@ namespace RestWithASPNETUdemy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             var connection = _Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
@@ -99,15 +98,14 @@ namespace RestWithASPNETUdemy
             services.AddControllers();
 
             //AcceptHeader 
-
             services.AddMvc(options =>
-        {
-            options.RespectBrowserAcceptHeader = true;
+            {
+                options.RespectBrowserAcceptHeader = true;
 
-            options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
-            options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
-        })
-        .AddXmlSerializerFormatters();
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+            })
+            .AddXmlSerializerFormatters();
 
             var filterOptions = new HyperMediaFilterOptions();
             filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
@@ -142,6 +140,7 @@ namespace RestWithASPNETUdemy
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
