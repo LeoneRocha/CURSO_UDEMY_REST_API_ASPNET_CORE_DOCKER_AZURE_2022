@@ -3,3 +3,8 @@
 
 https://localhost:44300/api/auth/v1/signin
 
+
+
+
+
+person (first_name, last_name, address, gender, enabled
