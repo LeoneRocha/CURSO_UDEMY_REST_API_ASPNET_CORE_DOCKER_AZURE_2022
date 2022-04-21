@@ -25,6 +25,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Http;
+
 
 namespace RestWithASPNETUdemy
 {
@@ -51,7 +54,7 @@ namespace RestWithASPNETUdemy
 
             if (_Environment.IsDevelopment())
             {
-                migrateDatabase(connection);
+                //migrateDatabase(connection);
             }
             var tokenConfigurations = new TokenConfiguration();
 
@@ -132,6 +135,9 @@ namespace RestWithASPNETUdemy
                     });
             });
 
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             //Dependency Injection
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
@@ -143,6 +149,8 @@ namespace RestWithASPNETUdemy
             services.AddScoped<IPersonRepository, PersonRepository>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+
+            services.AddScoped<IFileBusiness, FileBusinessImplementation>();
         }
 
 
