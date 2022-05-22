@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.4' 
 
 services:
   db:
@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: docker!123
       MYSQL_DATABASE: rest_with_asp_net_udemy
     ports:
-      - 3308:3306
+      - 3310:3306
     networks:
       - udemy-network
       
@@ -36,4 +36,3 @@ services:
 networks:
   udemy-network:
     driver: bridge
-    
