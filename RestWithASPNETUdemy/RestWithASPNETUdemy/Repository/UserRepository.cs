@@ -10,9 +10,9 @@ namespace RestWithASPNETUdemy.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly MySQLContext _context;
+        private readonly RestContext _context;
 
-        public UserRepository(MySQLContext context)
+        public UserRepository(RestContext context)
         {
             _context = context;
         }

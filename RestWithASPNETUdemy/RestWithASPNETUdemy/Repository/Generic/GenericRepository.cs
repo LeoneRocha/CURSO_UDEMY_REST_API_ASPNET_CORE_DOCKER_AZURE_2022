@@ -9,10 +9,10 @@ namespace RestWithASPNETUdemy.Repository.Generic
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        protected MySQLContext _context;
+        protected RestContext _context;
 
         private DbSet<T> dataset;
-        public GenericRepository(MySQLContext context)
+        public GenericRepository(RestContext context)
         {
             _context = context;
             dataset = _context.Set<T>();

@@ -1,6 +1,22 @@
 version: '3.4' 
 
 services:
+  dbPG:
+    image: postgres    
+    restart: always   
+    environment: 
+      POSTGRES_USER: aspnetrestudemy       
+      POSTGRES_PASSWORD: docker!123
+      POSTGRES_DB: rest_with_asp_net_udemy
+    ports:
+      - 5432:5432
+    networks:
+      - udemy-network 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 3320:3326
   db:
     image: rest-with-asp-net-udemy-db
     command: mysqld --default-authentication-plugin=mysql_native_password

@@ -1,6 +1,8 @@
 # CURSO_UDEMY_REST_API_ASPNET_CORE_DOCKER_AZURE_2022
 
-[![Build Status](https://app.travis-ci.com/LeoneRocha/CURSO_UDEMY_REST_API_ASPNET_CORE_DOCKER_AZURE_2022.svg?branch=main)](https://app.travis-ci.com/LeoneRocha/CURSO_UDEMY_REST_API_ASPNET_CORE_DOCKER_AZURE_2022)
+tag docker local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+
  
 "MySQLConnectionString": "Server=localhost;port=3309;DataBase=rest_with_asp_net_udemy;Uid=root;Pwd=my!SQ@ladmin123"
 docker-compose up -d --build 
@@ -27,3 +29,16 @@ ENVIAR
  docker tag rest_with_asp_net_udemy:lastest  leonecr/teste/rest_with_asp_net_udemy:lastest
  
  docker tag rest_with_asp_net_udemy:lastest  leonecr/teste/rest_with_asp_net_udemy:lastest
+
+CONVERSOR SQL ONLINE 
+https://www.sqlines.com/online
+
+docker run --name containerPostgres -e POSTGRES_PASSWORD=admin123 -p 5432:5432 -d postgres
+
+https://dbeaver.io/download/
+
+
+
+"MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
+
+"MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"

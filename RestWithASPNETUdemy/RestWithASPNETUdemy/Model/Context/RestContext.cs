@@ -2,13 +2,13 @@
 
 namespace RestWithASPNETUdemy.Model.Context
 {
-    public class MySQLContext : DbContext
+    public class RestContext : DbContext
     {
-        public MySQLContext()
+        public RestContext()
         {
         
         }
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) {}
+        public RestContext(DbContextOptions<RestContext> options) : base(options) {}
 
         public DbSet<Person> Persons { get; set; }
         public DbSet<Book> Books { get; set; }
