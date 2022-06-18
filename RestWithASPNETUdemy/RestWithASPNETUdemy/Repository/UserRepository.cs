@@ -1,4 +1,5 @@
-﻿using RestWithASPNETUdemy.Data.VO;
+﻿using Microsoft.EntityFrameworkCore;
+using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Model.Context;
 using System;
@@ -11,15 +12,17 @@ namespace RestWithASPNETUdemy.Repository
     public class UserRepository : IUserRepository
     {
         private readonly RestContext _context;
-
+        //public readonly string connStr;
         public UserRepository(RestContext context)
         {
             _context = context;
+            //connStr = _context.Database.GetConnectionString();
         }
 
         public User ValidateCredentials(UserVO user)
         {
-            var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider());
+            //var strcon = this.connStr;
+            var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider()); 
             return _context.Users.FirstOrDefault(u => (u.UserName == user.UserName) && (u.Password == pass));
         }
 

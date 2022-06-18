@@ -1,3 +1,8 @@
+IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'rest_with_asp_net_udemy')
+BEGIN
+CREATE DATABASE [rest_with_asp_net_udemy]
+END 
+GO
 USE [rest_with_asp_net_udemy]
 GO
 

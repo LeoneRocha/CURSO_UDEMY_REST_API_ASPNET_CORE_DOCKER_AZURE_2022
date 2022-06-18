@@ -40,11 +40,47 @@ docker run --name containerSQLServer -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=docker!1
 XXXXXX https://docs.docker.com/samples/postgresql_service/
 
 
+
+docker run --name containerSQLServer --hostname restSQLServer --network udemynetwork -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=docker!123" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+
+
+
+docker network inspect udemynetwork
+
+
+-------1
+ "MSSQLServerSQLConnection": {
+    "MSSQLServerSQLConnectionString": "Data Source=localhost,1433;Initial Catalog=rest_with_asp_net_udemy;User ID=sa;Password=admin123!;"
+  },
+  
+-------2
+
+ "MSSQLServerSQLConnection": {
+    "MSSQLServerSQLConnectionString": "Data Source=localhost,1433;Initial Catalog=rest_with_asp_net_udemy;User ID=sa;Password=docker!123;Trusted_Connection=False; TrustServerCertificate=True;"
+  },
+  
+ -------2 
+  
+  
+"MSSQLServerSQLConnectionString": "Server=localhost,1433;Database=rest_with_asp_net_udemy;User=sa;Password=docker!123;Trusted_Connection=False; TrustServerCertificate=True;" 
+
+
+
+  ConnectionStrings": {
+  "CatalogDb": "Password=****;Persist Security Info=True;User ID=SA;Database=CatalogDb;Server=mcr.microsoft.com/mssql/server:2017-latest,1433"
+},
+;
+
+
+docker sql server set network --link
+
+
 https://dbeaver.io/download/
+ 
+docker inspect --format '{{.NetworkSettings.IPAddress}}' containerSQLServer
 
 
-A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 40 - Could not open a connection to SQL Server)
-
+docker network create [OPTIONS] NETWORK
 
 
 
@@ -57,7 +93,7 @@ dbMSQL:
     ports:
       - 1431:1431
     networks:
-      - udemy-network
+      - udemynetwork
   dbPG:
     image: postgres    
     restart: always   
@@ -68,11 +104,16 @@ dbMSQL:
     ports:
       - 5431:5431
     networks:
-      - udemy-network
-			
-
-"MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
-
-"MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
-
-An exception has been raised that is likely due to a transient failure.
+      - udemynetwork
+db:
+  image: mcr.microsoft.com/mssql/server:2017-latest
+  restart: always
+  environment:
+    TZ: America/Sao_Paulo
+    SA_PASSWORD: admin123!
+    ACCEPT_EULA: Y
+  ports:
+    - 1433:1433
+  networks:
+    - udemynetwork
+	

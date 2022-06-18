@@ -1,0 +1,900 @@
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 40 -
+ Could not open a connection to SQL Server)
+
+
+
+
+docker inspect --format '{{.NetworkSettings.IPAddress}}' nome_do_container_ou_id_do_container
+
+
+
+
+
+"MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
+
+"MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
+
+An exception has been raised that is likely due to a transient failure.
+
+
+warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
+
+      Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+
+      No XML encryptor configured. Key {bc521624-aeb0-4bf6-9eba-d9a5004bbfa5} may be persisted to storage in unencrypted form.
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Now listening on: http://[::]:80
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Application started. Press Ctrl+C to shut down.
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Hosting environment: Production
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Content root path: /app
+
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+
+      Failed to determine the https port for redirect.
+
+fail: Microsoft.EntityFrameworkCore.Database.Connection[20004]
+
+      An error occurred using the connection to database 'rest_with_asp_net_udemy' on server 'tcp://localhost:5432'.
+
+fail: Microsoft.EntityFrameworkCore.Query[10100]
+
+      An exception occurred while iterating over the results of a query for context type 'RestWithASPNETUdemy.Model.Context.RestContext'.
+
+      System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+
+       ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+
+       ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (99): Cannot assign requested address [::1]:5432
+
+         at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+
+         at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+
+         at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+
+         at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+
+         at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+
+      --- End of stack trace from previous location ---
+
+         at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+
+      --- End of stack trace from previous location ---
+
+         at Npgsql.NpgsqlConnection.Open()
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+
+         --- End of inner exception stack trace ---
+
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+
+      System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+
+       ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+
+       ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (99): Cannot assign requested address [::1]:5432
+
+         at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+
+         at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+
+         at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+
+         at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+
+         at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+
+      --- End of stack trace from previous location ---
+
+         at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+
+      --- End of stack trace from previous location ---
+
+         at Npgsql.NpgsqlConnection.Open()
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+
+         --- End of inner exception stack trace ---
+
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+
+      Connection id "0HMIHAI6F9S36", Request id "0HMIHAI6F9S36:00000002": An unhandled exception was thrown by the application.
+
+      System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+
+       ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+
+       ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (99): Cannot assign requested address [::1]:5432
+
+         at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+
+         at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+
+         at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+
+         at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+
+         at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+
+         at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+
+      --- End of stack trace from previous location ---
+
+         at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+
+      --- End of stack trace from previous location ---
+
+         at Npgsql.NpgsqlConnection.Open()
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+
+         --- End of inner exception stack trace ---
+
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+
+         at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+
+         at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+
+         at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+
+         at RestWithASPNETUdemy.Repository.UserRepository.ValidateCredentials(UserVO user) in H:\Desenvolvimento_e_TI\WebSitesSistemas\GITHUB\APIREST2022\RestWithASPNETUdemy\RestWithASPNETUdemy\Repository\UserRepository.cs:line 23
+
+         at RestWithASPNETUdemy.Business.Implementations.LoginBusinessImplementation.ValidateCredentials(UserVO userCredentials) in H:\Desenvolvimento_e_TI\WebSitesSistemas\GITHUB\APIREST2022\RestWithASPNETUdemy\RestWithASPNETUdemy\Business\Implementations\LoginBusinessImplementation.cs:line 29
+
+         at RestWithASPNETUdemy.Controllers.AuthController.Signin(UserVO user) in H:\Desenvolvimento_e_TI\WebSitesSistemas\GITHUB\APIREST2022\RestWithASPNETUdemy\RestWithASPNETUdemy\Controllers\AuthController.cs:line 30
+
+         at lambda_method4(Closure , Object , Object[] )
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+
+      --- End of stack trace from previous location ---
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+
+      --- End of stack trace from previous location ---
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+
+      --- End of stack trace from previous location ---
+
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+
+         at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+
+         at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+
+         at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+
+​
+Search...
+Stick to bottom
+SQL Server 2019 will run as non-root by default.
+
+This container is running as user root.
+
+To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+
+2022-06-18 20:20:24.80 Server      Setup step is copying system data file 'C:\templatedata\master.mdf' to '/var/opt/mssql/data/master.mdf'.
+
+2022-06-18 20:20:24.82 Server      Did not find an existing master data file /var/opt/mssql/data/master.mdf, copying the missing default master and other system database files. If you have moved the database location, but not moved the database files, startup may fail. To repair: shutdown SQL Server, move the master database to configured location, and restart.
+
+2022-06-18 20:20:24.83 Server      Setup step is copying system data file 'C:\templatedata\mastlog.ldf' to '/var/opt/mssql/data/mastlog.ldf'.
+
+2022-06-18 20:20:24.83 Server      Setup step is copying system data file 'C:\templatedata\model.mdf' to '/var/opt/mssql/data/model.mdf'.
+
+2022-06-18 20:20:24.84 Server      Setup step is copying system data file 'C:\templatedata\modellog.ldf' to '/var/opt/mssql/data/modellog.ldf'.
+
+2022-06-18 20:20:24.85 Server      Setup step is copying system data file 'C:\templatedata\msdbdata.mdf' to '/var/opt/mssql/data/msdbdata.mdf'.
+
+2022-06-18 20:20:24.87 Server      Setup step is copying system data file 'C:\templatedata\msdblog.ldf' to '/var/opt/mssql/data/msdblog.ldf'.
+
+2022-06-18 20:20:24.89 Server      Microsoft SQL Server 2017 (RTM-CU29-GDR) (KB5014553) - 14.0.3445.2 (X64) 
+
+May 29 2022 12:36:31 
+
+Copyright (C) 2017 Microsoft Corporation
+
+Developer Edition (64-bit) on Linux (Ubuntu 16.04.7 LTS)
+
+2022-06-18 20:20:24.90 Server      UTC adjustment: 0:00
+
+2022-06-18 20:20:24.90 Server      (c) Microsoft Corporation.
+
+2022-06-18 20:20:24.90 Server      All rights reserved.
+
+2022-06-18 20:20:24.90 Server      Server process ID is 400.
+
+2022-06-18 20:20:24.90 Server      Logging SQL Server messages in file '/var/opt/mssql/log/errorlog'.
+
+2022-06-18 20:20:24.90 Server      Registry startup parameters: 
+
+ -d /var/opt/mssql/data/master.mdf
+
+ -l /var/opt/mssql/data/mastlog.ldf
+
+ -e /var/opt/mssql/log/errorlog
+
+2022-06-18 20:20:24.91 Server      SQL Server detected 1 sockets with 12 cores per socket and 24 logical processors per socket, 24 total logical processors; using 24 logical processors based on SQL Server licensing. This is an informational message; no user action is required.
+
+2022-06-18 20:20:24.91 Server      SQL Server is starting at normal priority base (=7). This is an informational message only. No user action is required.
+
+2022-06-18 20:20:24.91 Server      Detected 41074 MB of RAM. This is an informational message; no user action is required.
+
+2022-06-18 20:20:24.92 Server      Using conventional memory in the memory manager.
+
+2022-06-18 20:20:24.92 Server      Large Page Allocated: 32MB 
+
+2022-06-18 20:20:24.92 Server      Page exclusion bitmap is enabled.
+
+2022-06-18 20:20:25.03 Server      Automatic soft-NUMA was enabled because SQL Server has detected hardware NUMA nodes with greater than 8 physical cores.
+
+2022-06-18 20:20:25.07 Server      Buffer pool extension is already disabled. No action is necessary. 
+
+2022-06-18 20:20:25.17 Server      InitializeExternalUserGroupSid failed. Implied authentication will be disabled.
+
+2022-06-18 20:20:25.17 Server      Implied authentication manager initialization failed. Implied authentication will be disabled.
+
+2022-06-18 20:20:25.17 Server      Successfully initialized the TLS configuration. Allowed TLS protocol versions are ['1.0 1.1 1.2']. Allowed TLS ciphers are ['ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA'].
+
+2022-06-18 20:20:25.19 Server      Query Store settings initialized with enabled = 1, 
+
+2022-06-18 20:20:25.20 Server      The maximum number of dedicated administrator connections for this instance is '1'
+
+2022-06-18 20:20:25.20 Server      Node configuration: node 0: CPU mask: 0x0000000000555555:0 Active CPU mask: 0x0000000000555555:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.20 Server      Node configuration: node 1: CPU mask: 0x0000000000aaaaaa:0 Active CPU mask: 0x0000000000aaaaaa:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.23 Server      Using dynamic lock allocation.  Initial allocation of 2500 Lock blocks and 5000 Lock Owner blocks per node.  This is an informational message only.  No user action is required.
+
+2022-06-18 20:20:25.23 Server      Lock partitioning is enabled.  This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.24 Server      In-Memory OLTP initialized on standard machine.
+
+2022-06-18 20:20:25.26 Server      Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.
+
+ForceFlush is enabled for this instance. 
+
+2022-06-18 20:20:25.27 Server      Software Usage Metrics is disabled.
+
+2022-06-18 20:20:25.27 spid6s      Starting up database 'master'.
+
+ForceFlush feature is enabled for log durability.
+
+2022-06-18 20:20:25.30 spid6s      The tail of the log for database master is being rewritten to match the new sector size of 4096 bytes.  3072 bytes at offset 418816 in file /var/opt/mssql/data/mastlog.ldf will be written.
+
+2022-06-18 20:20:25.36 spid6s      Converting database 'master' from version 862 to the current version 869.
+
+2022-06-18 20:20:25.36 spid6s      Database 'master' running the upgrade step from version 862 to version 863.
+
+2022-06-18 20:20:25.37 spid6s      Database 'master' running the upgrade step from version 863 to version 864.
+
+2022-06-18 20:20:25.39 spid6s      Database 'master' running the upgrade step from version 864 to version 865.
+
+2022-06-18 20:20:25.40 spid6s      Database 'master' running the upgrade step from version 865 to version 866.
+
+2022-06-18 20:20:25.41 spid6s      Database 'master' running the upgrade step from version 866 to version 867.
+
+2022-06-18 20:20:25.41 spid6s      Database 'master' running the upgrade step from version 867 to version 868.
+
+2022-06-18 20:20:25.42 spid6s      Database 'master' running the upgrade step from version 868 to version 869.
+
+2022-06-18 20:20:25.59 spid6s      Resource governor reconfiguration succeeded.
+
+2022-06-18 20:20:25.59 spid6s      SQL Server Audit is starting the audits. This is an informational message. No user action is required.
+
+2022-06-18 20:20:25.60 spid6s      SQL Server Audit has started the audits. This is an informational message. No user action is required.
+
+2022-06-18 20:20:25.61 spid6s      SQL Trace ID 1 was started by login "sa".
+
+2022-06-18 20:20:25.62 spid6s      Server name is 'c7f9ae63019f'. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.62 spid22s     Password policy update was successful.
+
+2022-06-18 20:20:25.62 spid25s     Always On: The availability replica manager is starting. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.63 spid6s      Starting up database 'msdb'.
+
+2022-06-18 20:20:25.63 spid12s     Starting up database 'mssqlsystemresource'.
+
+2022-06-18 20:20:25.63 spid25s     Always On: The availability replica manager is waiting for the instance of SQL Server to allow client connections. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.63 spid12s     The resource database build version is 14.00.3445. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.65 spid12s     Starting up database 'model'.
+
+2022-06-18 20:20:25.65 spid6s      The tail of the log for database msdb is being rewritten to match the new sector size of 4096 bytes.  512 bytes at offset 306688 in file /var/opt/mssql/data/MSDBLog.ldf will be written.
+
+2022-06-18 20:20:25.67 spid12s     The tail of the log for database model is being rewritten to match the new sector size of 4096 bytes.  2048 bytes at offset 75776 in file /var/opt/mssql/data/modellog.ldf will be written.
+
+2022-06-18 20:20:25.67 spid6s      Converting database 'msdb' from version 862 to the current version 869.
+
+2022-06-18 20:20:25.67 spid6s      Database 'msdb' running the upgrade step from version 862 to version 863.
+
+2022-06-18 20:20:25.69 spid12s     Converting database 'model' from version 862 to the current version 869.
+
+2022-06-18 20:20:25.69 spid12s     Database 'model' running the upgrade step from version 862 to version 863.
+
+2022-06-18 20:20:25.71 spid6s      Database 'msdb' running the upgrade step from version 863 to version 864.
+
+2022-06-18 20:20:25.71 spid22s     A self-generated certificate was successfully loaded for encryption.
+
+2022-06-18 20:20:25.71 spid12s     Database 'model' running the upgrade step from version 863 to version 864.
+
+2022-06-18 20:20:25.72 spid22s     Server is listening on [ 'any' <ipv6> 1433].
+
+2022-06-18 20:20:25.72 spid22s     Server is listening on [ 'any' <ipv4> 1433].
+
+2022-06-18 20:20:25.72 Server      Server is listening on [ ::1 <ipv6> 1434].
+
+2022-06-18 20:20:25.72 Server      Server is listening on [ 127.0.0.1 <ipv4> 1434].
+
+2022-06-18 20:20:25.72 spid6s      Database 'msdb' running the upgrade step from version 864 to version 865.
+
+2022-06-18 20:20:25.72 Server      Dedicated admin connection support was established for listening locally on port 1434.
+
+2022-06-18 20:20:25.73 spid12s     Database 'model' running the upgrade step from version 864 to version 865.
+
+2022-06-18 20:20:25.73 spid22s     SQL Server is now ready for client connections. This is an informational message; no user action is required.
+
+2022-06-18 20:20:25.73 spid6s      Database 'msdb' running the upgrade step from version 865 to version 866.
+
+2022-06-18 20:20:25.74 spid12s     Database 'model' running the upgrade step from version 865 to version 866.
+
+2022-06-18 20:20:25.74 spid6s      Database 'msdb' running the upgrade step from version 866 to version 867.
+
+2022-06-18 20:20:25.75 spid12s     Database 'model' running the upgrade step from version 866 to version 867.
+
+2022-06-18 20:20:25.75 spid6s      Database 'msdb' running the upgrade step from version 867 to version 868.
+
+2022-06-18 20:20:25.75 spid12s     Database 'model' running the upgrade step from version 867 to version 868.
+
+2022-06-18 20:20:25.76 spid6s      Database 'msdb' running the upgrade step from version 868 to version 869.
+
+2022-06-18 20:20:25.77 spid12s     Database 'model' running the upgrade step from version 868 to version 869.
+
+2022-06-18 20:20:25.88 spid12s     Polybase feature disabled.
+
+2022-06-18 20:20:25.89 spid12s     Clearing tempdb database.
+
+2022-06-18 20:20:25.94 spid12s     Starting up database 'tempdb'.
+
+2022-06-18 20:20:26.06 spid12s     The tempdb database has 1 data file(s).
+
+2022-06-18 20:20:26.06 spid25s     The Service Broker endpoint is in disabled or stopped state.
+
+2022-06-18 20:20:26.06 spid25s     The Database Mirroring endpoint is in disabled or stopped state.
+
+2022-06-18 20:20:26.07 spid25s     Service Broker manager has started.
+
+2022-06-18 20:20:26.17 spid6s      Recovery is complete. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:26.18 spid19s     The default language (LCID 0) has been set for engine and full-text services.
+
+2022-06-18 20:21:16.15 spid51      Starting up database 'rest_with_asp_net_udemy'.
+
+2022-06-18 20:21:16.18 spid51      Parallel redo is started for database 'rest_with_asp_net_udemy' with worker pool size [12].
+
+2022-06-18 20:21:16.19 spid51      Parallel redo is shutdown for database 'rest_with_asp_net_udemy' with worker pool size [12].
+
+2022-06-18 20:21:50.68 spid58      Attempting to load library 'xplog70.dll' into memory. This is an informational message only. No user action is required.
+
+2022-06-18 20:21:50.70 spid58      Using 'xplog70.dll' version '2017.140.3445' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
+
+2022-06-18 20:21:50.83 spid58      Attempting to load library 'xpsqlbot.dll' into memory. This is an informational message only. No user action is required.
+
+2022-06-18 20:21:50.83 spid58      Using 'xpsqlbot.dll' version '2017.140.3445' to execute extended stored procedure 'xp_qv'. This is an informational message only; no user action is required.
+
+2022-06-18 20:25:28.13 spid57      Using 'dbghelp.dll' version '4.0.5'
+
+​
+Search...
+Stick to bottomUpgrade plan
+
+
+leonecr
+
+ExtensionsBETA 
+containerSQLServer
+mcr.microsoft.com/mssql/server:2017-latest
+RUNNING
+
+172.17.0.2
+
+
+"MSSQLServerSQLConnectionString": "Server=localhost,1433;Database=rest_with_asp_net_udemy;User=sa;Password=docker!123;" 
+
+
+
+SQL Server 2019 will run as non-root by default.
+
+This container is running as user root.
+
+To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+
+2022-06-18 20:20:24.80 Server      Setup step is copying system data file 'C:\templatedata\master.mdf' to '/var/opt/mssql/data/master.mdf'.
+
+2022-06-18 20:20:24.82 Server      Did not find an existing master data file /var/opt/mssql/data/master.mdf, copying the missing default master and other system database files. If you have moved the database location, but not moved the database files, startup may fail. To repair: shutdown SQL Server, move the master database to configured location, and restart.
+
+2022-06-18 20:20:24.83 Server      Setup step is copying system data file 'C:\templatedata\mastlog.ldf' to '/var/opt/mssql/data/mastlog.ldf'.
+
+2022-06-18 20:20:24.83 Server      Setup step is copying system data file 'C:\templatedata\model.mdf' to '/var/opt/mssql/data/model.mdf'.
+
+2022-06-18 20:20:24.84 Server      Setup step is copying system data file 'C:\templatedata\modellog.ldf' to '/var/opt/mssql/data/modellog.ldf'.
+
+2022-06-18 20:20:24.85 Server      Setup step is copying system data file 'C:\templatedata\msdbdata.mdf' to '/var/opt/mssql/data/msdbdata.mdf'.
+
+2022-06-18 20:20:24.87 Server      Setup step is copying system data file 'C:\templatedata\msdblog.ldf' to '/var/opt/mssql/data/msdblog.ldf'.
+
+2022-06-18 20:20:24.89 Server      Microsoft SQL Server 2017 (RTM-CU29-GDR) (KB5014553) - 14.0.3445.2 (X64) 
+
+May 29 2022 12:36:31 
+
+Copyright (C) 2017 Microsoft Corporation
+
+Developer Edition (64-bit) on Linux (Ubuntu 16.04.7 LTS)
+
+2022-06-18 20:20:24.90 Server      UTC adjustment: 0:00
+
+2022-06-18 20:20:24.90 Server      (c) Microsoft Corporation.
+
+2022-06-18 20:20:24.90 Server      All rights reserved.
+
+2022-06-18 20:20:24.90 Server      Server process ID is 400.
+
+2022-06-18 20:20:24.90 Server      Logging SQL Server messages in file '/var/opt/mssql/log/errorlog'.
+
+2022-06-18 20:20:24.90 Server      Registry startup parameters: 
+
+ -d /var/opt/mssql/data/master.mdf
+
+ -l /var/opt/mssql/data/mastlog.ldf
+
+ -e /var/opt/mssql/log/errorlog
+
+2022-06-18 20:20:24.91 Server      SQL Server detected 1 sockets with 12 cores per socket and 24 logical processors per socket, 24 total logical processors; using 24 logical processors based on SQL Server licensing. This is an informational message; no user action is required.
+
+2022-06-18 20:20:24.91 Server      SQL Server is starting at normal priority base (=7). This is an informational message only. No user action is required.
+
+2022-06-18 20:20:24.91 Server      Detected 41074 MB of RAM. This is an informational message; no user action is required.
+
+2022-06-18 20:20:24.92 Server      Using conventional memory in the memory manager.
+
+2022-06-18 20:20:24.92 Server      Large Page Allocated: 32MB 
+
+2022-06-18 20:20:24.92 Server      Page exclusion bitmap is enabled.
+
+2022-06-18 20:20:25.03 Server      Automatic soft-NUMA was enabled because SQL Server has detected hardware NUMA nodes with greater than 8 physical cores.
+
+2022-06-18 20:20:25.07 Server      Buffer pool extension is already disabled. No action is necessary. 
+
+2022-06-18 20:20:25.17 Server      InitializeExternalUserGroupSid failed. Implied authentication will be disabled.
+
+2022-06-18 20:20:25.17 Server      Implied authentication manager initialization failed. Implied authentication will be disabled.
+
+2022-06-18 20:20:25.17 Server      Successfully initialized the TLS configuration. Allowed TLS protocol versions are ['1.0 1.1 1.2']. Allowed TLS ciphers are ['ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA'].
+
+2022-06-18 20:20:25.19 Server      Query Store settings initialized with enabled = 1, 
+
+2022-06-18 20:20:25.20 Server      The maximum number of dedicated administrator connections for this instance is '1'
+
+2022-06-18 20:20:25.20 Server      Node configuration: node 0: CPU mask: 0x0000000000555555:0 Active CPU mask: 0x0000000000555555:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.20 Server      Node configuration: node 1: CPU mask: 0x0000000000aaaaaa:0 Active CPU mask: 0x0000000000aaaaaa:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.23 Server      Using dynamic lock allocation.  Initial allocation of 2500 Lock blocks and 5000 Lock Owner blocks per node.  This is an informational message only.  No user action is required.
+
+2022-06-18 20:20:25.23 Server      Lock partitioning is enabled.  This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.24 Server      In-Memory OLTP initialized on standard machine.
+
+2022-06-18 20:20:25.26 Server      Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.
+
+ForceFlush is enabled for this instance. 
+
+2022-06-18 20:20:25.27 Server      Software Usage Metrics is disabled.
+
+2022-06-18 20:20:25.27 spid6s      Starting up database 'master'.
+
+ForceFlush feature is enabled for log durability.
+
+2022-06-18 20:20:25.30 spid6s      The tail of the log for database master is being rewritten to match the new sector size of 4096 bytes.  3072 bytes at offset 418816 in file /var/opt/mssql/data/mastlog.ldf will be written.
+
+2022-06-18 20:20:25.36 spid6s      Converting database 'master' from version 862 to the current version 869.
+
+2022-06-18 20:20:25.36 spid6s      Database 'master' running the upgrade step from version 862 to version 863.
+
+2022-06-18 20:20:25.37 spid6s      Database 'master' running the upgrade step from version 863 to version 864.
+
+2022-06-18 20:20:25.39 spid6s      Database 'master' running the upgrade step from version 864 to version 865.
+
+2022-06-18 20:20:25.40 spid6s      Database 'master' running the upgrade step from version 865 to version 866.
+
+2022-06-18 20:20:25.41 spid6s      Database 'master' running the upgrade step from version 866 to version 867.
+
+2022-06-18 20:20:25.41 spid6s      Database 'master' running the upgrade step from version 867 to version 868.
+
+2022-06-18 20:20:25.42 spid6s      Database 'master' running the upgrade step from version 868 to version 869.
+
+2022-06-18 20:20:25.59 spid6s      Resource governor reconfiguration succeeded.
+
+2022-06-18 20:20:25.59 spid6s      SQL Server Audit is starting the audits. This is an informational message. No user action is required.
+
+2022-06-18 20:20:25.60 spid6s      SQL Server Audit has started the audits. This is an informational message. No user action is required.
+
+2022-06-18 20:20:25.61 spid6s      SQL Trace ID 1 was started by login "sa".
+
+2022-06-18 20:20:25.62 spid6s      Server name is 'c7f9ae63019f'. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.62 spid22s     Password policy update was successful.
+
+2022-06-18 20:20:25.62 spid25s     Always On: The availability replica manager is starting. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.63 spid6s      Starting up database 'msdb'.
+
+2022-06-18 20:20:25.63 spid12s     Starting up database 'mssqlsystemresource'.
+
+2022-06-18 20:20:25.63 spid25s     Always On: The availability replica manager is waiting for the instance of SQL Server to allow client connections. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.63 spid12s     The resource database build version is 14.00.3445. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:25.65 spid12s     Starting up database 'model'.
+
+2022-06-18 20:20:25.65 spid6s      The tail of the log for database msdb is being rewritten to match the new sector size of 4096 bytes.  512 bytes at offset 306688 in file /var/opt/mssql/data/MSDBLog.ldf will be written.
+
+2022-06-18 20:20:25.67 spid12s     The tail of the log for database model is being rewritten to match the new sector size of 4096 bytes.  2048 bytes at offset 75776 in file /var/opt/mssql/data/modellog.ldf will be written.
+
+2022-06-18 20:20:25.67 spid6s      Converting database 'msdb' from version 862 to the current version 869.
+
+2022-06-18 20:20:25.67 spid6s      Database 'msdb' running the upgrade step from version 862 to version 863.
+
+2022-06-18 20:20:25.69 spid12s     Converting database 'model' from version 862 to the current version 869.
+
+2022-06-18 20:20:25.69 spid12s     Database 'model' running the upgrade step from version 862 to version 863.
+
+2022-06-18 20:20:25.71 spid6s      Database 'msdb' running the upgrade step from version 863 to version 864.
+
+2022-06-18 20:20:25.71 spid22s     A self-generated certificate was successfully loaded for encryption.
+
+2022-06-18 20:20:25.71 spid12s     Database 'model' running the upgrade step from version 863 to version 864.
+
+2022-06-18 20:20:25.72 spid22s     Server is listening on [ 'any' <ipv6> 1433].
+
+2022-06-18 20:20:25.72 spid22s     Server is listening on [ 'any' <ipv4> 1433].
+
+2022-06-18 20:20:25.72 Server      Server is listening on [ ::1 <ipv6> 1434].
+
+2022-06-18 20:20:25.72 Server      Server is listening on [ 127.0.0.1 <ipv4> 1434].
+
+2022-06-18 20:20:25.72 spid6s      Database 'msdb' running the upgrade step from version 864 to version 865.
+
+2022-06-18 20:20:25.72 Server      Dedicated admin connection support was established for listening locally on port 1434.
+
+2022-06-18 20:20:25.73 spid12s     Database 'model' running the upgrade step from version 864 to version 865.
+
+2022-06-18 20:20:25.73 spid22s     SQL Server is now ready for client connections. This is an informational message; no user action is required.
+
+2022-06-18 20:20:25.73 spid6s      Database 'msdb' running the upgrade step from version 865 to version 866.
+
+2022-06-18 20:20:25.74 spid12s     Database 'model' running the upgrade step from version 865 to version 866.
+
+2022-06-18 20:20:25.74 spid6s      Database 'msdb' running the upgrade step from version 866 to version 867.
+
+2022-06-18 20:20:25.75 spid12s     Database 'model' running the upgrade step from version 866 to version 867.
+
+2022-06-18 20:20:25.75 spid6s      Database 'msdb' running the upgrade step from version 867 to version 868.
+
+2022-06-18 20:20:25.75 spid12s     Database 'model' running the upgrade step from version 867 to version 868.
+
+2022-06-18 20:20:25.76 spid6s      Database 'msdb' running the upgrade step from version 868 to version 869.
+
+2022-06-18 20:20:25.77 spid12s     Database 'model' running the upgrade step from version 868 to version 869.
+
+2022-06-18 20:20:25.88 spid12s     Polybase feature disabled.
+
+2022-06-18 20:20:25.89 spid12s     Clearing tempdb database.
+
+2022-06-18 20:20:25.94 spid12s     Starting up database 'tempdb'.
+
+2022-06-18 20:20:26.06 spid12s     The tempdb database has 1 data file(s).
+
+2022-06-18 20:20:26.06 spid25s     The Service Broker endpoint is in disabled or stopped state.
+
+2022-06-18 20:20:26.06 spid25s     The Database Mirroring endpoint is in disabled or stopped state.
+
+2022-06-18 20:20:26.07 spid25s     Service Broker manager has started.
+
+2022-06-18 20:20:26.17 spid6s      Recovery is complete. This is an informational message only. No user action is required.
+
+2022-06-18 20:20:26.18 spid19s     The default language (LCID 0) has been set for engine and full-text services.
+
+2022-06-18 20:21:16.15 spid51      Starting up database 'rest_with_asp_net_udemy'.
+
+2022-06-18 20:21:16.18 spid51      Parallel redo is started for database 'rest_with_asp_net_udemy' with worker pool size [12].
+
+2022-06-18 20:21:16.19 spid51      Parallel redo is shutdown for database 'rest_with_asp_net_udemy' with worker pool size [12].
+
+2022-06-18 20:21:50.68 spid58      Attempting to load library 'xplog70.dll' into memory. This is an informational message only. No user action is required.
+
+2022-06-18 20:21:50.70 spid58      Using 'xplog70.dll' version '2017.140.3445' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
+
+2022-06-18 20:21:50.83 spid58      Attempting to load library 'xpsqlbot.dll' into memory. This is an informational message only. No user action is required.
+
+2022-06-18 20:21:50.83 spid58      Using 'xpsqlbot.dll' version '2017.140.3445' to execute extended stored procedure 'xp_qv'. This is an informational message only; no user action is required.
+
+2022-06-18 20:25:28.13 spid57      Using 'dbghelp.dll' version '4.0.5'
+
+2022-06-18 21:16:56.38 spid6s      Always On: The availability replica manager is going offline because SQL Server is shutting down. This is an informational message only. No user action is required.
+
+2022-06-18 21:16:56.38 spid6s      SQL Server is terminating in response to a 'stop' request from Service Control Manager. This is an informational message only. No user action is required.
+
+2022-06-18 21:16:56.49 spid25s     Service Broker manager has shut down.
+
+2022-06-18 21:16:56.53 spid6s      SQL Trace was stopped due to server shutdown. Trace ID = '1'. This is an informational message only; no user action is required.
+
+2022-06-18T21:16:58.926915421Z SQL Server 2019 will run as non-root by default.
+
+This container is running as user root.
+
+Your master database file is owned by root.
+
+To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+
+2022-06-18 21:17:00.55 Server      Microsoft SQL Server 2017 (RTM-CU29-GDR) (KB5014553) - 14.0.3445.2 (X64) 
+
+May 29 2022 12:36:31 
+
+Copyright (C) 2017 Microsoft Corporation
+
+Developer Edition (64-bit) on Linux (Ubuntu 16.04.7 LTS)
+
+2022-06-18 21:17:00.56 Server      UTC adjustment: 0:00
+
+2022-06-18 21:17:00.56 Server      (c) Microsoft Corporation.
+
+2022-06-18 21:17:00.56 Server      All rights reserved.
+
+2022-06-18 21:17:00.56 Server      Server process ID is 400.
+
+2022-06-18 21:17:00.57 Server      Logging SQL Server messages in file '/var/opt/mssql/log/errorlog'.
+
+2022-06-18 21:17:00.57 Server      Registry startup parameters: 
+
+ -d /var/opt/mssql/data/master.mdf
+
+ -l /var/opt/mssql/data/mastlog.ldf
+
+ -e /var/opt/mssql/log/errorlog
+
+2022-06-18 21:17:00.57 Server      SQL Server detected 1 sockets with 12 cores per socket and 24 logical processors per socket, 24 total logical processors; using 24 logical processors based on SQL Server licensing. This is an informational message; no user action is required.
+
+2022-06-18 21:17:00.58 Server      SQL Server is starting at normal priority base (=7). This is an informational message only. No user action is required.
+
+2022-06-18 21:17:00.58 Server      Detected 41074 MB of RAM. This is an informational message; no user action is required.
+
+2022-06-18 21:17:00.58 Server      Using conventional memory in the memory manager.
+
+2022-06-18 21:17:00.59 Server      Large Page Allocated: 32MB 
+
+2022-06-18 21:17:00.59 Server      Page exclusion bitmap is enabled.
+
+2022-06-18 21:17:00.71 Server      Automatic soft-NUMA was enabled because SQL Server has detected hardware NUMA nodes with greater than 8 physical cores.
+
+2022-06-18 21:17:00.74 Server      Buffer pool extension is already disabled. No action is necessary. 
+
+2022-06-18 21:17:00.84 Server      InitializeExternalUserGroupSid failed. Implied authentication will be disabled.
+
+2022-06-18 21:17:00.85 Server      Implied authentication manager initialization failed. Implied authentication will be disabled.
+
+2022-06-18 21:17:00.85 Server      Successfully initialized the TLS configuration. Allowed TLS protocol versions are ['1.0 1.1 1.2']. Allowed TLS ciphers are ['ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA'].
+
+2022-06-18 21:17:00.86 Server      Query Store settings initialized with enabled = 1, 
+
+2022-06-18 21:17:00.87 Server      The maximum number of dedicated administrator connections for this instance is '1'
+
+2022-06-18 21:17:00.88 Server      Node configuration: node 0: CPU mask: 0x0000000000555555:0 Active CPU mask: 0x0000000000555555:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+
+2022-06-18 21:17:00.88 Server      Node configuration: node 1: CPU mask: 0x0000000000aaaaaa:0 Active CPU mask: 0x0000000000aaaaaa:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+
+2022-06-18 21:17:00.91 Server      Using dynamic lock allocation.  Initial allocation of 2500 Lock blocks and 5000 Lock Owner blocks per node.  This is an informational message only.  No user action is required.
+
+2022-06-18 21:17:00.91 Server      Lock partitioning is enabled.  This is an informational message only. No user action is required.
+
+2022-06-18 21:17:00.92 Server      In-Memory OLTP initialized on standard machine.
+
+2022-06-18 21:17:00.94 Server      Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.
+
+ForceFlush is enabled for this instance. 
+
+2022-06-18 21:17:00.95 Server      Software Usage Metrics is disabled.
+
+2022-06-18 21:17:00.96 spid7s      Starting up database 'master'.
+
+ForceFlush feature is enabled for log durability.
+
+2022-06-18 21:17:01.03 spid7s      Resource governor reconfiguration succeeded.
+
+2022-06-18 21:17:01.03 spid7s      SQL Server Audit is starting the audits. This is an informational message. No user action is required.
+
+2022-06-18 21:17:01.03 spid7s      SQL Server Audit has started the audits. This is an informational message. No user action is required.
+
+2022-06-18 21:17:01.06 spid7s      SQL Trace ID 1 was started by login "sa".
+
+2022-06-18 21:17:01.07 spid7s      Server name is 'c7f9ae63019f'. This is an informational message only. No user action is required.
+
+2022-06-18 21:17:01.08 spid22s     Always On: The availability replica manager is starting. This is an informational message only. No user action is required.
+
+2022-06-18 21:17:01.08 spid25s     Starting up database 'msdb'.
+
+2022-06-18 21:17:01.08 spid12s     Starting up database 'mssqlsystemresource'.
+
+2022-06-18 21:17:01.08 spid26s     Starting up database 'rest_with_asp_net_udemy'.
+
+2022-06-18 21:17:01.08 spid22s     Always On: The availability replica manager is waiting for the instance of SQL Server to allow client connections. This is an informational message only. No user action is required.
+
+2022-06-18 21:17:01.09 spid12s     The resource database build version is 14.00.3445. This is an informational message only. No user action is required.
+
+2022-06-18 21:17:01.11 spid12s     Starting up database 'model'.
+
+2022-06-18 21:17:01.12 spid26s     Parallel redo is started for database 'rest_with_asp_net_udemy' with worker pool size [12].
+
+2022-06-18 21:17:01.15 spid20s     A self-generated certificate was successfully loaded for encryption.
+
+2022-06-18 21:17:01.15 spid12s     Polybase feature disabled.
+
+2022-06-18 21:17:01.15 spid12s     Clearing tempdb database.
+
+2022-06-18 21:17:01.15 spid20s     Server is listening on [ 'any' <ipv6> 1433].
+
+2022-06-18 21:17:01.15 spid20s     Server is listening on [ 'any' <ipv4> 1433].
+
+2022-06-18 21:17:01.16 Server      Server is listening on [ ::1 <ipv6> 1434].
+
+2022-06-18 21:17:01.16 Server      Server is listening on [ 127.0.0.1 <ipv4> 1434].
+
+2022-06-18 21:17:01.16 Server      Dedicated admin connection support was established for listening locally on port 1434.
+
+2022-06-18 21:17:01.16 spid20s     SQL Server is now ready for client connections. This is an informational message; no user action is required.
+
+2022-06-18 21:17:01.21 spid12s     Starting up database 'tempdb'.
+
+2022-06-18 21:17:01.26 spid12s     The tempdb database has 1 data file(s).
+
+2022-06-18 21:17:01.27 spid22s     The Service Broker endpoint is in disabled or stopped state.
+
+2022-06-18 21:17:01.27 spid22s     The Database Mirroring endpoint is in disabled or stopped state.
+
+2022-06-18 21:17:01.28 spid22s     Service Broker manager has started.
+
+2022-06-18 21:17:01.28 spid25s     Parallel redo is shutdown for database 'rest_with_asp_net_udemy' with worker pool size [12].
+
+2022-06-18 21:17:01.38 spid7s      Recovery is complete. This is an informational message only. No user action is required.
+
+2022-06-18 21:18:46.42 Logon       Error: 17836, Severity: 20, State: 17.
+
+2022-06-18 21:18:46.42 Logon       Length specified in network packet payload did not match number of bytes read; the connection has been closed. Please contact the vendor of the client library. [CLIENT: 172.17.0.1]
+
+2022-06-18 21:18:46.42 Logon       Error: 17836, Severity: 20, State: 17.
+
+2022-06-18 21:18:46.42 Logon       Length specified in network packet payload did not match number of bytes read; the connection has been closed. Please contact the vendor of the client library. [CLIENT: 172.17.0.1]
+
+2022-06-18 21:18:46.43 Logon       Error: 17836, Severity: 20, State: 17.
+
+2022-06-18 21:18:46.43 Logon       Length specified in network packet payload did not match number of bytes read; the connection has been closed. Please contact the vendor of the client library. [CLIENT: 172.17.0.1]
+
+2022-06-18 21:18:47.48 Logon       Error: 17836, Severity: 20, State: 17.
+
+2022-06-18 21:18:47.48 Logon       Length specified in network packet payload did not match number of bytes read; the connection has been closed. Please contact the vendor of the client library. [CLIENT: 172.17.0.1]
+
+2022-06-18 21:18:47.48 Logon       Error: 17836, Severity: 20, State: 17.
+
+2022-06-18 21:18:47.48 Logon       Length specified in network packet payload did not match number of bytes read; the connection has been closed. Please contact the vendor of the client library. [CLIENT: 172.17.0.1]
+
+2022-06-18 21:18:47.49 Logon       Error: 17836, Severity: 20, State: 17.
+
+2022-06-18 21:18:47.49 Logon       Length specified in network packet payload did not match number of bytes read; the connection has been closed. Please contact the vendor of the client library. [CLIENT: 172.17.0.1]
+
+2022-06-18 21:22:03.66 spid51      Using 'dbghelp.dll' version '4.0.5'
+
+2022-06-18 21:22:07.51 spid51      Attempting to load library 'xplog70.dll' into memory. This is an informational message only. No user action is required.
+
+2022-06-18 21:22:07.53 spid51      Using 'xplog70.dll' version '2017.140.3445' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
+
+2022-06-18 21:33:36.99 spid53      Attempting to load library 'xpstar.dll' into memory. This is an informational message only. No user action is required.
+
+2022-06-18 21:33:37.01 spid53      Using 'xpstar.dll' version '2017.140.3445' to execute extended stored procedure 'xp_instance_regread'. This is an informational message only; no user action is required.
+
+​
+Search...
+Stick to bottom

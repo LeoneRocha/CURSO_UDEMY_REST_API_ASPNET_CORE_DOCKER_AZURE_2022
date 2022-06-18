@@ -10,12 +10,14 @@ namespace RestWithASPNETUdemy.Repository.Generic
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
         protected RestContext _context;
+        //public readonly string connStr;
 
         private DbSet<T> dataset;
         public GenericRepository(RestContext context)
         {
             _context = context;
             dataset = _context.Set<T>();
+           // connStr= _context.Database.GetConnectionString();
         }
 
         public List<T> FindAll()
