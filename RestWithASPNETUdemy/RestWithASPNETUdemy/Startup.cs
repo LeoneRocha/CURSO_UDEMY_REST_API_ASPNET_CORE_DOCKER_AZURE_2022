@@ -27,7 +27,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.Data.SqlClient;
 
 namespace RestWithASPNETUdemy
 {
@@ -49,13 +49,17 @@ namespace RestWithASPNETUdemy
         enum TypeDataBase
         {
             Mysql,
-            Postgree
+            Postgree,
+            MSSQL
+
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            addDbContext(services, TypeDataBase.Mysql);
+            //addDbContext(services, TypeDataBase.Mysql);
+            //addDbContext(services, TypeDataBase.Postgree);//COM ERRO 
+            addDbContext(services, TypeDataBase.MSSQL);//COM ERRO 
 
             var tokenConfigurations = new TokenConfiguration();
 
@@ -157,7 +161,7 @@ namespace RestWithASPNETUdemy
         private void addDbContext(IServiceCollection services, TypeDataBase etypeDataBase)
         {
             var connection = string.Empty;
-            var migreted = _Environment.IsDevelopment() ? migrateDatabaseMySql(connection) : false;
+            bool migreted = false;
             switch (etypeDataBase)
             {
                 case TypeDataBase.Mysql:
@@ -170,10 +174,15 @@ namespace RestWithASPNETUdemy
                     services.AddDbContext<RestContext>(options => options.UseNpgsql(connection));
                     //migreted = _Environment.IsDevelopment() ? migrateDatabasePostgree(connection) : false;
                     break;
+                case TypeDataBase.MSSQL:
+                    connection = _Configuration["MSSQLServerSQLConnection:MSSQLServerSQLConnectionString"];
+                    services.AddDbContext<RestContext>(options => options.UseSqlServer(connection));
+                    //migreted = _Environment.IsDevelopment() ? migrateDatabaseSqlServer(connection) : false;
+                    break;
                 default:
                     break;
-            } 
-        } 
+            }
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -207,6 +216,26 @@ namespace RestWithASPNETUdemy
                 endpoints.MapControllers();
                 endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
+        }
+
+        private bool migrateDatabaseSqlServer(string connection)
+        {
+            try
+            {
+                var evolveConnection = new SqlConnection(connection);
+                var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
+                {
+                    Locations = new List<string> { "dbMSSQL/migrations" },
+                    IsEraseDisabled = true,
+                };
+                evolve.Migrate();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Database migration failed", ex);
+                throw;
+            }
         }
 
         private bool migrateDatabaseMySql(string connection)

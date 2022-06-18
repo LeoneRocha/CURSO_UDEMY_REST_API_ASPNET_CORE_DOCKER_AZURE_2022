@@ -33,12 +33,46 @@ ENVIAR
 CONVERSOR SQL ONLINE 
 https://www.sqlines.com/online
 
-docker run --name containerPostgres -e POSTGRES_PASSWORD=admin123 -p 5432:5432 -d postgres
+docker run --name containerPostgres -e POSTGRES_PASSWORD=docker123 -p 5432:5432 -d postgres-latest
+ 
+docker run --name containerSQLServer -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=docker!123" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+ 
+XXXXXX https://docs.docker.com/samples/postgresql_service/
+
 
 https://dbeaver.io/download/
 
 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 40 - Could not open a connection to SQL Server)
+
+
+
+
+dbMSQL:
+    image: mcr.microsoft.com/mssql/server:2017-latest    
+    restart: always   
+    environment: 
+      ACCEPT_EULA:  "Y"       
+      SA_PASSWORD: docker!123 
+    ports:
+      - 1431:1431
+    networks:
+      - udemy-network
+  dbPG:
+    image: postgres    
+    restart: always   
+    environment: 
+      POSTGRES_USER: aspnetrestudemy       
+      POSTGRES_PASSWORD: docker123
+      POSTGRES_DB: rest_with_asp_net_udemy
+    ports:
+      - 5431:5431
+    networks:
+      - udemy-network
+			
 
 "MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
 
 "MySQLConnectionString": "Server=db;DataBase=rest_with_asp_net_udemy;Uid=aspnetrestudemy;Pwd=docker!123;SslMode=none;"
+
+An exception has been raised that is likely due to a transient failure.
