@@ -59,7 +59,7 @@ namespace RestWithASPNETUdemy
         {
             //addDbContext(services, TypeDataBase.Mysql);
             //addDbContext(services, TypeDataBase.Postgree);//COM ERRO 
-            addDbContext(services, TypeDataBase.MSSQL);//COM ERRO 
+            addDbContext(services, TypeDataBase.MSSQL); 
 
             var tokenConfigurations = new TokenConfiguration();
 
@@ -177,7 +177,7 @@ namespace RestWithASPNETUdemy
                 case TypeDataBase.MSSQL:
                     connection = _Configuration["MSSQLServerSQLConnection:MSSQLServerSQLConnectionString"];
                     services.AddDbContext<RestContext>(options => options.UseSqlServer(connection));
-                    //migreted = _Environment.IsDevelopment() ? migrateDatabaseSqlServer(connection) : false;
+                    migreted = !_Environment.IsDevelopment() ? migrateDatabaseSqlServer(connection) : false;
                     break;
                 default:
                     break;
