@@ -16,7 +16,7 @@ namespace RestWithASPNETUdemy.Hypermedia.Enricher
         {
             var path = "api/book/v1";
             string link = GetLink(content.Id, urlHelper, path);
-
+             
             content.Links.Add(new HyperMediaLink()
             {
                 Action = HttpActionVerb.GET,
@@ -45,7 +45,7 @@ namespace RestWithASPNETUdemy.Hypermedia.Enricher
                 Rel = RelationType.self,
                 Type = "int"
             });
-            return null;
+            return Task.Run(() => { });//Ajuste para o resultado não lancar erro de objeto nullo
         }
 
         private string GetLink(long id, IUrlHelper urlHelper, string path)

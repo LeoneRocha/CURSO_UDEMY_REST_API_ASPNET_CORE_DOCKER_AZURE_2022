@@ -52,7 +52,8 @@ namespace RestWithASPNETUdemy.Hypermedia.Enricher
                 Rel = RelationType.self,
                 Type = "int"
             });
-            return null;
+            //return null;
+            return Task.Run(() => { });//Ajuste para o resultado não lancar erro de objeto nullo
         }
 
         private string GetLink(long id, IUrlHelper urlHelper, string path)
