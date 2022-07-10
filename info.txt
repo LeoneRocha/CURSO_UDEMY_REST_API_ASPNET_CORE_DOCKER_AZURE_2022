@@ -1,3 +1,5 @@
+https://github.com/leandrocgsi/RestWithASP-NETUdemy
+
 # CURSO_UDEMY_REST_API_ASPNET_CORE_DOCKER_AZURE_2022
 
 tag docker local-image:tagname new-repo:tagname
@@ -116,4 +118,15 @@ db:
     - 1433:1433
   networks:
     - udemynetwork
-	
+
+
+
+npx create-react-app my-app 
+
+RestWithASPNETUdemy	
+
+npx create-react-app cli_rjs_restwithaspnetudemy	
+
+cd 
+
+code .
