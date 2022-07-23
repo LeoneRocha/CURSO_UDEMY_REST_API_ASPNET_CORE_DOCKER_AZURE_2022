@@ -130,3 +130,9 @@ npx create-react-app cli_rjs_restwithaspnetudemy
 cd 
 
 code .
+
+npm install react-router-dom
+
+npm install react-icons
+
+ npm install axios
